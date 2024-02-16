@@ -1,7 +1,7 @@
 [
   {
     "kernelSource": {
-      "name": "chopin",
+      "name": "chopin-ksu",
       "repo": "https://github.com/Anya1014CN/kernel_xiaomi_chopin",
       "branch": "r",
       "device": "chopin",
@@ -59,7 +59,7 @@
       "use": true,
       "release": true
     },
-    "enableKernelSU": false,
+    "enableKernelSU": true,
     "enableLXC": true
   }
 ]
