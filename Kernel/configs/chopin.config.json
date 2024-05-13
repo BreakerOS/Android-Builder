@@ -1,7 +1,7 @@
 [
   {
     "kernelSource": {
-      "name": "chopin-ksu",
+      "name": "chopin-ksu-11",
       "repo": "https://github.com/Anya1014CN/kernel_xiaomi_chopin",
       "branch": "r",
       "device": "chopin",
