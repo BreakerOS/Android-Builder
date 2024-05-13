@@ -137,7 +137,10 @@ jobs:
         run: |
           toolchains_num="$(echo $toolchains | jq 'length')"
           echo "🤔 There is $toolchains_num defined toolchains."
-
+          echo "🌟 ==========Executing command start=========="
+          echo "git clone --recursive --depth=1 -j $(nproc) --branch $toolchain_branch $toolchain_repo $toolchain_name"
+          echo "🌟 ==========Executing command end=========="
+          
           for ((i=0;i<toolchains_num;i++)); do
             toolchain=$(echo $toolchains | jq -r ".[$i]")
 
@@ -196,7 +199,6 @@ jobs:
           THREAD: $(nproc --all)
         run: |
           echo "🤔 PATH Variable: $PATH"
-
           ARCH=$(echo $PARAMS | jq -r ".ARCH")
           CC=$(echo $PARAMS | jq -r ".CC")
 
@@ -225,7 +227,9 @@ jobs:
           echo "ARCH=$ARCH" >> $GITHUB_OUTPUT
           echo "ARGS=$args" >> $GITHUB_OUTPUT
 
+          echo "🌟 ==========args start=========="
           echo "🤔 $args"
+          echo "🌟 ==========args end=========="
 
       - name: 😋 Setup KernelSU
         working-directory: ${{ env.KERNEL_NAME }}
@@ -299,6 +303,10 @@ jobs:
           ARGS: ${{ steps.generate-args.outputs.ARGS }}
         run: |
           echo "🤔 PATH Variable: $PATH"
+          echo "🌟 ==========Executing command start=========="
+          echo "make ${{ env.ARGS }} ${{ env.KERNEL_DEFCONFIG_PATH }}"
+          echo "make ${{ env.ARGS }}"
+          echo "🌟 ==========Executing command end=========="
           export KBUILD_BUILD_HOST=Github-Action
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
           make ${{ env.ARGS }} ${{ env.KERNEL_DEFCONFIG_PATH }}
