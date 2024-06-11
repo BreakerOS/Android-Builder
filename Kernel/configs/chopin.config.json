@@ -3,7 +3,7 @@
     "kernelSource": {
       "name": "chopin-ksu-11",
       "repo": "https://github.com/Anya1014CN/kernel_xiaomi_chopin",
-      "branch": "r",
+      "branch": "r-ksu",
       "device": "chopin",
       "defconfig": "chopin_user_defconfig"
     },
